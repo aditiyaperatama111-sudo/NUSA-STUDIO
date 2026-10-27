@@ -1,0 +1,226 @@
+.project-card-link {
+    display: block;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    border-radius: 10px;
+}
+.project-card-link > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+.project-card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    color: var(--blue);
+    font-size: 1rem;
+    font-weight: 700;
+}
+.project-card-link:hover .project-card-action {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.project-card-link:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 7px;
+}
+
+.detail-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.detail-header .header-inner {
+    gap: 16px;
+}
+.detail-header-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 8px 12px;
+    color: var(--blue);
+    font-size: 1rem;
+    font-weight: 700;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.detail-header-back:hover {
+    background: var(--pale);
+}
+.detail-main {
+    flex: 1;
+    padding-top: 32px;
+    padding-bottom: 80px;
+}
+.detail-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    font-size: 1rem;
+}
+.detail-breadcrumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--blue);
+}
+.detail-breadcrumb a:hover {
+    text-decoration: underline;
+}
+.detail-heading {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.detail-category {
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 1rem;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+.detail-heading h1 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+.detail-image-wrap {
+    overflow: hidden;
+    background: var(--pale);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+.detail-image {
+    width: 100%;
+    height: auto;
+}
+.detail-description {
+    min-width: 0;
+    padding-top: 8px;
+}
+.detail-label {
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+}
+.detail-description h2 {
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    margin-bottom: 20px;
+}
+.detail-text {
+    font-size: 1rem;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+.detail-return {
+    margin-top: 32px;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+}
+.detail-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 24px;
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .detail-main {
+        padding-top: 20px;
+        padding-bottom: 48px;
+    }
+    .detail-heading {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+.project-grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+}
+
+.project-grid > .project-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+    .project-grid > .project-card {
+        flex-basis: calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid > .project-card {
+        flex-basis: 85%;
+    }
+}
+
+.project-slider {
+    position: relative;
+}
+
+.project-slider-arrow {
+    position: absolute;
+    top: var(--arrow-top, 120px);
+    transform: translateY(-50%);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #0f2747;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0003;
+}
+
+.project-slider-arrow:hover {
+    background: #0954e8;
+}
+
+.project-slider-arrow.prev {
+    left: 6px;
+}
+
+.project-slider-arrow.next {
+    right: 6px;
+}
+
+.project-slider .project-grid {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.project-slider .project-card {
+    scroll-snap-align: none;
+}
